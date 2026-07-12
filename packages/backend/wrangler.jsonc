@@ -8,6 +8,7 @@
     "enabled": true
   },
   "vars": {
-    "ENVIRONMENT": "production"
+    "ENVIRONMENT": "production",
+    "FRONTEND_URL": "https://personal-portfolio-frontend-jet.vercel.app"
   }
 }

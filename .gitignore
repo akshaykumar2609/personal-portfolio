@@ -32,3 +32,8 @@ Thumbs.db
 # Misc
 coverage/
 .cache/
+
+# vars
+packages/
+backend/
+.dev.vars

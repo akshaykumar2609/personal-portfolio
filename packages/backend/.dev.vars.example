@@ -1,0 +1,7 @@
+# Local secrets for `wrangler dev` (NOT used by Vite — that's the root .env).
+# Copy to `.dev.vars` and fill in. This file is git-ignored.
+SUPABASE_URL=https://YOUR-PROJECT-ref.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-secret-key
+SENTRY_DSN=https://xxxx@xxxx.ingest.sentry.io/xxxx
+ENVIRONMENT=development
+FRONTEND_URL=http://localhost:5173

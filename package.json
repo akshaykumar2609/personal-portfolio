@@ -1,0 +1,20 @@
+{
+  "name": "personal-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Personal portfolio: React (Vercel) + Hono on Cloudflare Workers + Supabase + Sentry",
+  "workspaces": [
+    "packages/frontend",
+    "packages/backend"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev --workspace=packages/frontend",
+    "dev:api": "npm run dev --workspace=packages/backend",
+    "build:web": "npm run build --workspace=packages/frontend",
+    "build:api": "npm run build --workspace=packages/backend",
+    "lint": "npm run lint --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

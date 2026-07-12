@@ -1,7 +1,15 @@
 // Base URL of the Cloudflare Worker API.
-// Set VITE_API_BASE to your deployed Worker URL (e.g. https://portfolio-api.your-sub.workers.dev).
-// Leave empty in dev to use Vite's /api proxy to localhost:8787.
-export const API_BASE = (import.meta.env.VITE_API_BASE as string) || '';
+// REQUIRED in production: set VITE_API_BASE in Vercel to your Worker URL
+// (e.g. https://portfolio-api.your-sub.workers.dev). Leaving it empty makes
+// the app fetch a RELATIVE /api/... path, which Vercel's SPA rewrite answers
+// with index.html -> the JSON parse fails silently. Fail loud instead.
+const API_BASE = (import.meta.env.VITE_API_BASE as string | undefined)?.trim();
+
+if (!API_BASE) {
+  throw new Error(
+    'VITE_API_BASE is not set. Set it in Vercel env vars to your Cloudflare Worker URL (https://*.workers.dev) and redeploy.',
+  );
+}
 
 export interface Project {
   id: string;

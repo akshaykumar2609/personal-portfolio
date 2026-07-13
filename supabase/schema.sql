@@ -37,21 +37,21 @@ create index if not exists projects_display_order_idx
 insert into public.projects (slug, title, description, tech, url, repo, display_order)
 values
   (
-    'portfolio',
-    'This Portfolio',
-    'A personal portfolio built with React, Hono, Supabase and Sentry.',
-    array['React', 'Hono', 'Supabase', 'Sentry', 'Cloudflare'],
-    'https://your-portfolio.vercel.app',
-    'https://github.com/yourname/portfolio',
+    'lung-carcinoma-screening',
+    'Enhancing Lung Carcinoma Screening: 2D-Unet Model',
+    'Developed a robust web application to facilitate advanced medical imaging analysis. Processed 11 GB of CT-scan image datasets, applying a 2D U-Net deep learning model to accurately predict and detect cancer regions. Generated dynamic video outputs combining nearly 200 image layers to highlight cancerous regions, alongside automated CSV reports detailing location, position, radius, and dimensions.',
+    array['Python', 'Flask', 'HTML', 'JavaScript', 'CSS', 'Google Drive API', 'U-Net', 'Deep Learning'],
+    null,
+    'https://github.com/akshaykumar2609/lung-carcinoma-screening',
     0
   ),
   (
-    'example-app',
-    'Example Project',
-    'A short description of something you built.',
-    array['TypeScript', 'Vite'],
+    'feedback-edu',
+    'FeedbackEDU: Interactive Student-Faculty System',
+    'Built a full-stack web application to digitize and streamline academic feedback processes for over 1,000 active users. Designed a normalized relational database comprising 8 interrelated tables to securely manage distinct access roles for students, faculty, and administrators, ensuring 99.9% data integrity.',
+    array['Java', 'Servlets', 'MySQL', 'HTML', 'JavaScript', 'CSS'],
     null,
-    'https://github.com/yourname/example-app',
+    'https://github.com/akshaykumar2609/feedback-edu',
     1
   )
 on conflict (slug) do nothing;

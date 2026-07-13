@@ -9,6 +9,6 @@
   },
   "vars": {
     "ENVIRONMENT": "production",
-    "FRONTEND_URL": "https://personal-portfolio-frontend-jet.vercel.app"
+    "FRONTEND_URL": "https://vakumullaakshaykumar.vercel.app"
   }
 }

@@ -2,20 +2,51 @@ import { useEffect, useState } from 'react';
 import * as Sentry from '@sentry/react';
 import { fetchProjects, type Project } from '../lib/api';
 
+const FALLBACK_PROJECTS: Project[] = [
+  {
+    id: 'fallback-1',
+    slug: 'lung-carcinoma-screening',
+    title: 'Enhancing Lung Carcinoma Screening: 2D-Unet Model',
+    description: 'Developed a robust web application to facilitate advanced medical imaging analysis. Processed 11 GB of CT-scan image datasets, applying a 2D U-Net deep learning model to accurately predict and detect cancer regions, improving diagnostic efficiency. Generated dynamic video outputs combining nearly 200 image layers to highlight cancerous regions, alongside automated CSV reports detailing location, position, radius, and dimensions.',
+    tech: ['Python', 'Flask', 'HTML', 'JavaScript', 'CSS', 'Google Drive API', 'U-Net', 'Deep Learning'],
+    repo: 'https://github.com/vakumullaakshaykumar/lung-carcinoma-screening',
+    display_order: 0,
+    published: true
+  },
+  {
+    id: 'fallback-2',
+    slug: 'feedback-edu',
+    title: 'FeedbackEDU: Interactive Student-Faculty System',
+    description: 'Built a full-stack web application using HTML, JavaScript, Servlets, and MySQL to digitize and streamline academic feedback processes for over 1,000 active users. Designed a normalized relational database comprising 8 interrelated tables to securely manage distinct access roles for students, faculty, and administrators, ensuring 99.9% data integrity.',
+    tech: ['Java', 'Servlets', 'MySQL', 'HTML', 'JavaScript', 'CSS'],
+    repo: 'https://github.com/vakumullaakshaykumar/feedback-edu',
+    display_order: 1,
+    published: true
+  }
+];
+
 export function Projects() {
   const [projects, setProjects] = useState<Project[]>([]);
-  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let cancelled = false;
     fetchProjects()
       .then((data) => {
-        if (!cancelled) setProjects(data);
+        if (!cancelled) {
+          if (data && data.length > 0) {
+            setProjects(data);
+          } else {
+            setProjects(FALLBACK_PROJECTS);
+          }
+        }
       })
       .catch((err) => {
         Sentry.captureException(err);
-        if (!cancelled) setError('Could not load projects. Please try again later.');
+        console.warn('API fetch failed, falling back to static projects list:', err);
+        if (!cancelled) {
+          setProjects(FALLBACK_PROJECTS);
+        }
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -26,8 +57,6 @@ export function Projects() {
   }, []);
 
   if (loading) return <p className="muted">Loading projects…</p>;
-  if (error) return <p className="error">{error}</p>;
-  if (projects.length === 0) return <p className="muted">No projects published yet.</p>;
 
   return (
     <ul className="projects">

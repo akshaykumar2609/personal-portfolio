@@ -9,7 +9,7 @@ const FALLBACK_PROJECTS: Project[] = [
     title: 'Enhancing Lung Carcinoma Screening: 2D-Unet Model',
     description: 'Developed a robust web application to facilitate advanced medical imaging analysis. Processed 11 GB of CT-scan image datasets, applying a 2D U-Net deep learning model to accurately predict and detect cancer regions, improving diagnostic efficiency. Generated dynamic video outputs combining nearly 200 image layers to highlight cancerous regions, alongside automated CSV reports detailing location, position, radius, and dimensions.',
     tech: ['Python', 'Flask', 'HTML', 'JavaScript', 'CSS', 'Google Drive API', 'U-Net', 'Deep Learning'],
-    repo: 'https://github.com/vakumullaakshaykumar/lung-carcinoma-screening',
+    repo: 'https://github.com/akshaykumar2609/lung-carcinoma-screening',
     display_order: 0,
     published: true
   },
@@ -19,7 +19,7 @@ const FALLBACK_PROJECTS: Project[] = [
     title: 'FeedbackEDU: Interactive Student-Faculty System',
     description: 'Built a full-stack web application using HTML, JavaScript, Servlets, and MySQL to digitize and streamline academic feedback processes for over 1,000 active users. Designed a normalized relational database comprising 8 interrelated tables to securely manage distinct access roles for students, faculty, and administrators, ensuring 99.9% data integrity.',
     tech: ['Java', 'Servlets', 'MySQL', 'HTML', 'JavaScript', 'CSS'],
-    repo: 'https://github.com/vakumullaakshaykumar/feedback-edu',
+    repo: 'https://github.com/akshaykumar2609/feedback-edu',
     display_order: 1,
     published: true
   }

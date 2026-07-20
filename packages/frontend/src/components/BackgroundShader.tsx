@@ -105,6 +105,8 @@ export function BackgroundShader() {
           <ShaderGradientComp
             animate="on"
             axesHelper="off"
+            bgColor1="#000000"
+            bgColor2="#000000"
             brightness={1.2}
             cAzimuthAngle={180}
             cDistance={2.9}
@@ -128,7 +130,7 @@ export function BackgroundShader() {
             positionX={0}
             positionY={1.8}
             positionZ={0}
-            range="enabled"
+            range="disabled"
             rangeEnd={40}
             rangeStart={0}
             reflection={0.1}
@@ -139,10 +141,10 @@ export function BackgroundShader() {
             toggleAxis={false}
             type="waterPlane"
             uAmplitude={0}
-            uDensity={1}
+            uDensity={1.1}
             uFrequency={5.5}
             uSpeed={0.2}
-            uStrength={1.5}
+            uStrength={2.4}
             uTime={0.2}
             wireframe={false}
             zoomOut={false}

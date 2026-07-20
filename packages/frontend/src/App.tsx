@@ -1,5 +1,11 @@
 import { useEffect, useRef } from 'react';
 import { Projects } from './components/Projects';
+import { ThemeToggle } from './components/ThemeToggle';
+
+// Your WhatsApp number in international format, digits only (no + or spaces).
+// Example: India +91 98765 43210 -> '919876543210'. Replace with your real number.
+const WHATSAPP_NUMBER = '919876543210';
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hi Akshay, I came from your portfolio!')}`;
 
 export default function App() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -24,6 +30,9 @@ export default function App() {
 
   return (
     <div ref={containerRef} className="portfolio-wrapper">
+      {/* Theme switch — fixed top-right via CSS */}
+      <ThemeToggle />
+
       {/* Background radial glow effects for rich dark aesthetics */}
       <div className="glow glow-1" aria-hidden="true"></div>
       <div className="glow glow-2" aria-hidden="true"></div>
@@ -43,9 +52,9 @@ export default function App() {
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
               vakumullaakshaykumar@gmail.com
             </a>
-            <a href="https://www.google.com/maps/place/Vijayawada,+Andhra+Pradesh,+India" target="_blank" rel="noreferrer" className="contact-item" title="View location on Google Maps">
+            <a href="https://www.google.com/maps/place/Hyderabad,+Telangana,+India" target="_blank" rel="noreferrer" className="contact-item" title="View location on Google Maps">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
-              Vijayawada, India
+              Hyderabad, India
             </a>
             <a href="https://github.com/akshaykumar2609" target="_blank" rel="noreferrer" className="contact-item" title="GitHub Profile">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /></svg>
@@ -179,6 +188,20 @@ export default function App() {
         <footer className="footer">
           <p className="muted">© {new Date().getFullYear()} Akshay Kumar Vakumulla. Built with React, Hono, Supabase &amp; Sentry.</p>
         </footer>
+
+        {/* Floating WhatsApp chat button — fixed bottom-right via CSS */}
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="whatsapp-fab"
+          aria-label="Chat with me on WhatsApp"
+          title="Chat with me on WhatsApp"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+            <path d="M16.04 4C9.93 4 5 8.93 5 15.04c0 2.13.6 4.16 1.74 5.91L5 27l6.16-1.62a10.9 10.9 0 0 0 4.88 1.16h.01c6.11 0 11.04-4.93 11.04-11.04C27.09 8.93 22.16 4 16.04 4zm0 20.16h-.01a9.06 9.06 0 0 1-4.62-1.27l-.33-.2-3.65.96.97-3.56-.24-.34a9.03 9.03 0 0 1-1.39-4.81c0-5 4.07-9.07 9.07-9.07 2.42 0 4.7.94 6.42 2.66a9.03 9.03 0 0 1 2.66 6.42c0 5-4.07 9.05-9.05 9.05zm5.02-6.78c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.43-2.19-1.37-.81-.73-1.36-1.64-1.52-1.91-.16-.27-.02-.42.12-.55.13-.13.27-.34.41-.5.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47-.16-.01-.35-.01-.54-.01a1.03 1.03 0 0 0-.74.35c-.25.27-.97.95-.97 2.32 0 1.37.99 2.69 1.13 2.88.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.74.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z" />
+          </svg>
+        </a>
       </main>
     </div>
   );

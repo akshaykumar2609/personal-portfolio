@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Projects } from './components/Projects';
 import { ThemeToggle } from './components/ThemeToggle';
+import { BackgroundShader } from './components/BackgroundShader';
 
 // Your WhatsApp number in international format, digits only (no + or spaces).
 // Example: India +91 98765 43210 -> '919876543210'. Replace with your real number.
@@ -30,10 +31,13 @@ export default function App() {
 
   return (
     <div ref={containerRef} className="portfolio-wrapper">
+      {/* 3D Shader Gradient Background */}
+      <BackgroundShader />
+
       {/* Theme switch — fixed top-right via CSS */}
       <ThemeToggle />
 
-      {/* Background radial glow effects for rich dark aesthetics */}
+      {/* Background radial glow effects */}
       <div className="glow glow-1" aria-hidden="true"></div>
       <div className="glow glow-2" aria-hidden="true"></div>
 

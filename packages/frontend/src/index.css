@@ -6,9 +6,9 @@
   --muted: #94a3b8;
   --accent: #5b8cff;
   --accent-glow: rgba(91, 140, 255, 0.15);
-  --card: #121723; /* Solid, premium dark color to prevent rapid-scroll rendering glitches */
-  --border: rgba(35, 43, 57, 0.85);
-  --border-hover: rgba(91, 140, 255, 0.35);
+  --card: rgba(18, 23, 35, 0.75);
+  --border: rgba(255, 255, 255, 0.12);
+  --border-hover: rgba(91, 140, 255, 0.5);
 }
 
 * {
@@ -18,7 +18,7 @@
 body {
   margin: 0;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: var(--bg);
+  background: transparent;
   color: var(--fg);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -180,6 +180,8 @@ a.contact-item:hover {
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -496,4 +498,118 @@ a.contact-item:hover {
     flex-direction: column;
     gap: 0.75rem;
   }
+}
+
+/* Project link icons */
+.links a .link-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Theme toggle (fixed top-right) */
+.theme-toggle {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 200;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--fg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-hover);
+  color: var(--accent);
+}
+.theme-toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* WhatsApp floating chat button (fixed bottom-right) */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 200;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.whatsapp-fab:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 26px rgba(37, 211, 102, 0.5);
+}
+.whatsapp-fab svg {
+  width: 30px;
+  height: 30px;
+}
+
+/* Light theme overrides */
+[data-theme="light"] {
+  --bg: #f4f6fb;
+  --fg: #0f172a;
+  --muted: #64748b;
+  --accent: #3b6fff;
+  --accent-glow: rgba(59, 111, 255, 0.18);
+  --card: #ffffff;
+  --border: rgba(148, 163, 184, 0.45);
+  --border-hover: rgba(59, 111, 255, 0.45);
+}
+[data-theme="light"] body {
+  background: var(--bg);
+  color: var(--fg);
+}
+[data-theme="light"] h2 {
+  color: #0f172a;
+}
+[data-theme="light"] h1.name {
+  background: linear-gradient(135deg, #0f172a 0%, #475569 60%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+[data-theme="light"] .bio,
+[data-theme="light"] .contact-item,
+[data-theme="light"] .projects .card p,
+[data-theme="light"] .bullets li,
+[data-theme="light"] .degree,
+[data-theme="light"] .score,
+[data-theme="light"] .cert-list li,
+[data-theme="light"] .role {
+  color: #334155;
+}
+[data-theme="light"] .projects .card h3,
+[data-theme="light"] .timeline-header h3,
+[data-theme="light"] .skill-card h3,
+[data-theme="light"] .cert-card h3,
+[data-theme="light"] .edu-header h3 {
+  color: #0f172a;
+}
+[data-theme="light"] .tag {
+  color: #2f5fd0;
+}
+[data-theme="light"] .timeline-badge {
+  border-color: var(--bg);
+}
+[data-theme="light"] .card {
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.08);
+}
+[data-theme="light"] .card:hover {
+  box-shadow: 0 12px 40px 0 rgba(15, 23, 42, 0.12), 0 0 15px 0 var(--accent-glow);
 }

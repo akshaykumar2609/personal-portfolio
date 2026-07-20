@@ -3,9 +3,9 @@ import { Projects } from './components/Projects';
 import { ThemeToggle } from './components/ThemeToggle';
 import { BackgroundShader } from './components/BackgroundShader';
 
-// Your WhatsApp number in international format, digits only (no + or spaces).
-// Example: India +91 98765 43210 -> '919876543210'. Replace with your real number.
-const WHATSAPP_NUMBER = '919876543210';
+// Read WhatsApp number securely from environment variables (.env file or deployment platform)
+// Add VITE_WHATSAPP_NUMBER=91XXXXXXXXXX to your local .env file (which is git-ignored).
+const WHATSAPP_NUMBER = (import.meta.env.VITE_WHATSAPP_NUMBER as string | undefined)?.trim() || '919876543210';
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hi Akshay, I came from your portfolio!')}`;
 
 export default function App() {

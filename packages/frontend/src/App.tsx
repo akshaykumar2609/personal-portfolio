@@ -49,7 +49,7 @@ export default function App() {
       <main className="container">
 
         <header className="hero animate-fade-in">
-          <h1 className="name">Akshay Kumar Vakumulla</h1>
+          <h1 className="name">Vakumulla Akshay Kumar</h1>
           <p className="tagline">Software Engineer · Specializing in Enterprise Applications &amp; Intelligent Systems</p>
           <p className="muted bio">
             I'm a software engineer passionate about building scalable, latency-optimized applications and integrating deep learning and intelligent systems to solve real-world problems. Currently working at Accenture, leading projects from conception to delivery.

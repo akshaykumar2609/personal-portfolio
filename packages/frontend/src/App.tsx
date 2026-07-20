@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react';
 import { Projects } from './components/Projects';
 import { ThemeToggle } from './components/ThemeToggle';
 import { BackgroundShader } from './components/BackgroundShader';
+import { BackgroundFallback } from './components/BackgroundFallback';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 // Read WhatsApp number securely from environment variables (.env file or deployment platform)
 // Add VITE_WHATSAPP_NUMBER=91XXXXXXXXXX to your local .env file (which is git-ignored).
@@ -31,8 +33,11 @@ export default function App() {
 
   return (
     <div ref={containerRef} className="portfolio-wrapper">
-      {/* 3D Shader Gradient Background */}
-      <BackgroundShader />
+      {/* 3D Shader Gradient Background — isolated so a WebGL/reconciler
+          failure degrades to the CSS fallback instead of blanking the page */}
+      <ErrorBoundary fallback={<BackgroundFallback />}>
+        <BackgroundShader />
+      </ErrorBoundary>
 
       {/* Theme switch — fixed top-right via CSS */}
       <ThemeToggle />
